@@ -60,6 +60,22 @@ const useHomeHook = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop >=
+          document.documentElement.offsetHeight - 100 &&
+        !loading &&
+        !isFetchingMore
+      ) {
+        fetchMoreImages();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading, isFetchingMore, fetchMoreImages]);
+
+  useEffect(() => {
     if (!searchInput) {
       setError(null);
       setImages([]);

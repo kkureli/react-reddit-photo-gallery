@@ -7,7 +7,6 @@ import SearchBar from "../../components/Searchbar/Searchbar";
 import ThemedTypography from "../../components/ThemedContainer/ThemedTypography";
 import ThemedContainer from "../../components/ThemedContainer/ThemedContainer";
 import "./HomePage.css";
-import { useEffect } from "react";
 
 const HomePage = () => {
   const {
@@ -18,26 +17,9 @@ const HomePage = () => {
     searchInput,
     setSearchInput,
     onClickCard,
-    fetchMoreImages,
     isFetchingMore,
   } = useHomeHook();
   const { t } = useTranslation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop >=
-          document.documentElement.offsetHeight - 100 &&
-        !loading &&
-        !isFetchingMore
-      ) {
-        fetchMoreImages();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [loading, isFetchingMore, fetchMoreImages]);
 
   return (
     <ThemedContainer>

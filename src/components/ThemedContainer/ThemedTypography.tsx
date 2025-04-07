@@ -6,7 +6,7 @@ const ThemedTypography = (props: TypographyProps) => {
   return (
     <Typography
       {...props}
-      className={isDarkTheme ? "dark-theme" : "light-theme"}
+      className={isDarkTheme ? "dark-theme-text" : "light-theme-text"}
     />
   );
 };

@@ -17,3 +17,18 @@
   background-color: var(--dark-background);
   color: var(--dark-text);
 }
+.light-theme-text {
+  color: var(--light-text);
+}
+
+/* Dark Theme */
+.dark-theme-text {
+  color: var(--dark-text);
+}
+
+.light-container {
+  background-color: var(--light-background);
+}
+.dark-container {
+  background-color: var(--dark-background);
+}

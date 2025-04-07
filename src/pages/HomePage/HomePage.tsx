@@ -50,7 +50,7 @@ const HomePage = () => {
           {t("searchPrompt")}{" "}
         </ThemedTypography>
       )}
-      {loading && !images.length && (
+      {loading && (
         <div className="loading-container">
           <CircularProgress />
         </div>

@@ -14,6 +14,8 @@ const mockCard: ImageData = {
   subreddit: "test_subreddit",
   thumbnail: "test_thumbnail_url",
   ups: 123,
+  url: "",
+  media_metadata: {},
 };
 
 const mockStore = configureStore();

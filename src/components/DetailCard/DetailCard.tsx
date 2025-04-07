@@ -33,20 +33,20 @@ const DetailCard: React.FC<DetailCardProps> = ({ card, onBack }) => {
             {title}
           </ThemedTypography>
           <ThemedTypography variant="body1" data-testid="author">
-            <strong>Author:</strong> {author}
+            <strong>{t("author")}:</strong> {author}
           </ThemedTypography>
           <ThemedTypography variant="body1" data-testid="subreddit">
-            <strong>Subreddit:</strong> {subreddit}
+            <strong>{t("subreddit")}:</strong> {subreddit}
           </ThemedTypography>
           <ThemedTypography variant="body1" data-testid="ups">
-            <strong>Ups:</strong> {ups}
+            <strong>{t("ups")}:</strong> {ups}
           </ThemedTypography>
           <ThemedTypography variant="body1" data-testid="description">
-            <strong>Description:</strong>{" "}
-            {selftext || "No description available."}
+            <strong>{t("description")}:</strong>{" "}
+            {selftext || t("noDescription")}
           </ThemedTypography>
           <ThemedTypography variant="body1" data-testid="id">
-            <strong>ID:</strong> {id}
+            <strong>{t("id")}:</strong> {id}
           </ThemedTypography>
         </div>
         <div className="photo-detail-image">

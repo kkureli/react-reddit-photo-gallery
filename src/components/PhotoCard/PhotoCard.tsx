@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { lightThemeColors, darkThemeColors } from "../../theme/colors";
 import useIsDarkThemeHook from "../../hooks/useIsDarkThemeHook";
+import { useTranslation } from "react-i18next";
 
 interface PhotoCardProps {
   image: ImageData;
@@ -20,11 +21,11 @@ interface PhotoCardProps {
 const PhotoCard: React.FC<PhotoCardProps> = ({ image, onClickCard }) => {
   const { isDarkTheme } = useIsDarkThemeHook();
   const themeColors = isDarkTheme ? darkThemeColors : lightThemeColors;
-
+  const { t } = useTranslation();
   const imageUrl = image.thumbnail; // Görsel URL'si
-  const title = image.title || "No Title";
-  const author = image.author || "Unknown";
-  const subreddit = image.subreddit || "Unknown subreddit";
+  const title = image.title;
+  const author = image.author;
+  const subreddit = image.subreddit;
   const ups = image.ups || 0;
 
   const truncatedTitle =
@@ -58,13 +59,19 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ image, onClickCard }) => {
         >
           {truncatedTitle}
         </Typography>
-        <Typography variant="body2">By: {author}</Typography>
-        <Typography variant="body2">Subreddit: {subreddit}</Typography>
-        <Typography variant="body2">Ups: {ups}</Typography>
+        <Typography variant="body2">
+          {t("author")}: {author}
+        </Typography>
+        <Typography variant="body2">
+          {t("subreddit")}: {subreddit}
+        </Typography>
+        <Typography variant="body2">
+          {t("ups")}: {ups}
+        </Typography>
       </CardContent>
       <CardActions>
         <Button onClick={() => onClickCard(image)} size="small" color="primary">
-          Detaya Git
+          {t("go_to_detail")}
         </Button>
       </CardActions>
     </Card>

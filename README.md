@@ -1,46 +1,123 @@
-# Getting Started with Create React App
+# Reddit Photo Gallery
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A basic multilanguage web application that allows users to browse and view photo galleries fetched from Reddit. This project is designed to provide a seamless and visually appealing experience for exploring Reddit's image-based content.
 
-## Available Scripts
+## Features
+- Multilanguage support
+- Dark - Light theme options
+- Fetch and display photo galleries from Reddit.
+- Responsive design for optimal viewing on all devices.
+- Search functionality to find specific subreddits or topics.
+- Lazy loading for improved performance.
+- User-friendly interface with smooth navigation.
 
-In the project directory, you can run:
+#### Project Structure
 
-### `npm start`
+- ## `src`: This folder is the main container of all the code.
+  - `api`: This folder contains all services and base request function.
+  - `redux`: This folder contains all actions, slices, thunks and store which is provided by redux.
+  - `components`: Folder to store any common component that you use through app
+  - `constants`: Folder to store constants
+  - `localization`: Folder to store the languages files.
+  - `pages`: Folder that contains all application pages.
+  - `theme`: Folder to store all the styling concerns related to the application theme.
+  - `store`: Folder to manage redux logic and global states.
+    
+- ## `__test__`: Folder to store all tests
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Follow these steps to set up the project locally:
 
-### `npm test`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/reddit-photo-gallery.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd reddit-photo-gallery
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+5. Open your browser and visit `http://localhost:3000`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+1. Open the application in your browser.
+2. Use the search bar to find photo galleries from specific subreddits.
+3. Click on details button to navigate details page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Frontend**: ReactJS, TypeScript, CSS, Material UI
+- **API**: Reddit API
+- **Build Tools**: Webpack, Babel
+- **Other Libraries**: Axios, React Router, Redux, i18n
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Testing
 
-### `npm run eject`
+To run the tests, execute `npm test` in a terminal opened in the project folder.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Commit Message Types
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+[TYPE]: [COMMIT MESSAGE]
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+For example:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+style: style file updated.
+```
 
-## Learn More
+| type     | release |
+| -------- | ------- |
+| breaking | major   |
+| feat     | minor   |
+| fix      | patch   |
+| build    | patch   |
+| style    | patch   |
+| refactor | patch   |
+| perf     | patch   |
+| chore    | none    |
+| ci       | none    |
+| docs     | none    |
+| test     | none    |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add feature-name"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request on GitHub.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or feedback, please contact:
+
+- **Name**: Kaan Kureli
+- **Email**: kkureli@gmail.com
+- **GitHub**: [kkureli](https://github.com/kkureli)

@@ -6,6 +6,7 @@ import Header from "../../components/Header/Header";
 import SearchBar from "../../components/Searchbar/Searchbar";
 import ThemedTypography from "../../components/ThemedContainer/ThemedTypography";
 import ThemedContainer from "../../components/ThemedContainer/ThemedContainer";
+import "./HomePage.css"; // Add this import for the CSS file
 
 const HomePage = () => {
   const { error, handleSearch, images, loading, searchInput, setSearchInput } =
@@ -41,7 +42,11 @@ const HomePage = () => {
           {t("searchPrompt")}{" "}
         </ThemedTypography>
       )}
-      {loading && <CircularProgress />}
+      {loading && (
+        <div className="loading-container">
+          <CircularProgress />
+        </div>
+      )}
       {error && <Alert severity="error">{error}</Alert>}
       <Grid marginTop={4} container spacing={3}>
         {images.map((img) => (

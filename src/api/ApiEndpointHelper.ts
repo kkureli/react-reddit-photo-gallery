@@ -15,6 +15,7 @@ const fetchRedditImages = async (keyword: string): Promise<ImageData[]> => {
       media_metadata,
       subreddit,
       id,
+      selftext,
     } = post.data;
 
     return {
@@ -26,6 +27,7 @@ const fetchRedditImages = async (keyword: string): Promise<ImageData[]> => {
       url,
       media_metadata,
       id,
+      selftext,
     };
   });
 

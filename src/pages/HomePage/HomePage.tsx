@@ -6,11 +6,18 @@ import Header from "../../components/Header/Header";
 import SearchBar from "../../components/Searchbar/Searchbar";
 import ThemedTypography from "../../components/ThemedContainer/ThemedTypography";
 import ThemedContainer from "../../components/ThemedContainer/ThemedContainer";
-import "./HomePage.css"; // Add this import for the CSS file
+import "./HomePage.css";
 
 const HomePage = () => {
-  const { error, handleSearch, images, loading, searchInput, setSearchInput } =
-    useHomeHook();
+  const {
+    error,
+    handleSearch,
+    images,
+    loading,
+    searchInput,
+    setSearchInput,
+    onClickCard,
+  } = useHomeHook();
   const { t } = useTranslation();
 
   return (
@@ -50,7 +57,7 @@ const HomePage = () => {
       {error && <Alert severity="error">{error}</Alert>}
       <Grid marginTop={4} container spacing={3}>
         {images.map((img) => (
-          <PhotoCard key={img.id} image={img} />
+          <PhotoCard key={img.id} image={img} onClickCard={onClickCard} />
         ))}
       </Grid>
     </ThemedContainer>

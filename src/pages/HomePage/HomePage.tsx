@@ -7,6 +7,7 @@ import SearchBar from "../../components/Searchbar/Searchbar";
 import ThemedTypography from "../../components/ThemedContainer/ThemedTypography";
 import ThemedContainer from "../../components/ThemedContainer/ThemedContainer";
 import "./HomePage.css";
+import { useEffect } from "react";
 
 const HomePage = () => {
   const {
@@ -17,8 +18,26 @@ const HomePage = () => {
     searchInput,
     setSearchInput,
     onClickCard,
+    fetchMoreImages,
+    isFetchingMore,
   } = useHomeHook();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop >=
+          document.documentElement.offsetHeight - 100 &&
+        !loading &&
+        !isFetchingMore
+      ) {
+        fetchMoreImages();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading, isFetchingMore, fetchMoreImages]);
 
   return (
     <ThemedContainer>
@@ -49,7 +68,7 @@ const HomePage = () => {
           {t("searchPrompt")}{" "}
         </ThemedTypography>
       )}
-      {loading && (
+      {loading && !images.length && (
         <div className="loading-container">
           <CircularProgress />
         </div>
@@ -57,9 +76,18 @@ const HomePage = () => {
       {error && <Alert severity="error">{error}</Alert>}
       <Grid marginTop={4} container spacing={3}>
         {images.map((img) => (
-          <PhotoCard key={img.id} image={img} onClickCard={onClickCard} />
+          <PhotoCard
+            key={img.id + img.ups}
+            image={img}
+            onClickCard={onClickCard}
+          />
         ))}
       </Grid>
+      {isFetchingMore && (
+        <div className="loading-container">
+          <CircularProgress />
+        </div>
+      )}
     </ThemedContainer>
   );
 };

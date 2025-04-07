@@ -9,29 +9,51 @@ const useHomeHook = () => {
   const [error, setError] = useState<string | null>(null);
   const [images, setImages] = useState<ImageData[]>([]);
   const [searchInput, setSearchInput] = useState("");
+  const [after, setAfter] = useState<string | null>(null);
+  const [isFetchingMore, setIsFetchingMore] = useState(false);
   const navigate = useNavigate();
+
+  const fetchImages = async (
+    keyword: string,
+    afterToken: string | null = null
+  ) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const results = await fetchRedditImages(keyword, afterToken);
+      setImages((prevImages) =>
+        afterToken ? [...prevImages, ...results.images] : results.images
+      );
+      setAfter(results.after);
+    } catch (err: any) {
+      setError(
+        err?.response?.data?.message ||
+          "An error occurred while fetching images."
+      );
+      console.log("err", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSearch = useCallback(
     debounce(async (keyword: string) => {
       if (keyword.length < 3) return;
-      setLoading(true);
-      setError(null);
-      try {
-        const results = await fetchRedditImages(keyword);
-        setImages(results);
-      } catch (err: any) {
-        if (err?.response?.data?.message) {
-          setError(err.response.data.message);
-          return;
-        }
-        setError("An error occurred while fetching images.");
-        console.log("err", err);
-      } finally {
-        setLoading(false);
-      }
+      setAfter(null);
+      await fetchImages(keyword, null);
     }, 500),
     []
   );
+
+  const fetchMoreImages = async () => {
+    if (!searchInput || !after || isFetchingMore) return;
+    setIsFetchingMore(true);
+    try {
+      await fetchImages(searchInput, after);
+    } finally {
+      setIsFetchingMore(false);
+    }
+  };
 
   const onClickCard = (card: ImageData) => {
     navigate(`/photo/${card.id}`, { state: { card } });
@@ -52,6 +74,8 @@ const useHomeHook = () => {
     searchInput,
     setSearchInput,
     onClickCard,
+    fetchMoreImages,
+    isFetchingMore,
   };
 };
 

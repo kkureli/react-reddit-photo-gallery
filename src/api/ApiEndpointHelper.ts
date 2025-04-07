@@ -1,9 +1,16 @@
 import HttpClient from "./httpclient";
 import { ImageData } from "../types/types";
+const LIMIT = 10;
 
-const fetchRedditImages = async (keyword: string): Promise<ImageData[]> => {
-  const response = await HttpClient.Get(`/r/${keyword}/top.json`);
+const fetchRedditImages = async (
+  keyword: string,
+  after: string | null = null
+): Promise<{ images: ImageData[]; after: string | null }> => {
+  const response = await HttpClient.Get(
+    `/r/${keyword}/top.json?limit=${LIMIT}&after=${after}`
+  );
   const posts = response.data.data.children;
+  const afterToken = response.data.data.after;
 
   const imageData: ImageData[] = posts.map((post: any) => {
     const {
@@ -31,7 +38,7 @@ const fetchRedditImages = async (keyword: string): Promise<ImageData[]> => {
     };
   });
 
-  return imageData;
+  return { images: imageData, after: afterToken };
 };
 
 export { fetchRedditImages };

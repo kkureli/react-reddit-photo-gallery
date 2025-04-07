@@ -36,6 +36,7 @@ const useHomeHook = () => {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleSearch = useCallback(
     debounce(async (keyword: string) => {
       if (keyword.length < 3) return;
@@ -73,7 +74,8 @@ const useHomeHook = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [loading, isFetchingMore, fetchMoreImages]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, isFetchingMore]);
 
   useEffect(() => {
     if (!searchInput) {

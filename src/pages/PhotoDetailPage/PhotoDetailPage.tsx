@@ -19,7 +19,7 @@ const PhotoDetailPage = () => {
   return (
     <ThemedContainer>
       <Header />
-      <DetailCard card={card} onBack={onBack} />
+      <DetailCard card={card} onBack={onBack} data-testid="detail-card" />
     </ThemedContainer>
   );
 };

@@ -1,6 +1,6 @@
 import HttpClient from "./httpclient";
 import { ImageData } from "../types/types";
-const LIMIT = 10;
+const LIMIT = 20;
 
 const fetchRedditImages = async (
   keyword: string,

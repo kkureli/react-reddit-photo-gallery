@@ -1,20 +1,14 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import { en } from "./en";
+import { tr } from "./tr";
 
 const resources = {
   en: {
-    translation: {
-      search: "Search...",
-      title: "Reddit Photo Gallery",
-      searchPrompt: "Search for your favorite subreddit images!",
-    },
+    translation: en,
   },
   tr: {
-    translation: {
-      search: "Ara...",
-      title: "Reddit Fotoğraf Galerisi",
-      searchPrompt: "Favori subreddit görsellerinizi arayın!",
-    },
+    translation: tr,
   },
 };
 

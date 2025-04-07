@@ -15,8 +15,12 @@ const DetailCard: React.FC<DetailCardProps> = ({ card, onBack }) => {
   const { t } = useTranslation();
   const { isDarkTheme } = useIsDarkThemeHook();
   return (
-    <div className="detail-card">
-      <button className="back-button" onClick={onBack}>
+    <div className="detail-card" data-testid="detail-card">
+      <button
+        className="back-button"
+        onClick={onBack}
+        data-testid="back-button"
+      >
         {t("back")}
       </button>
       <div className="detail-card-content">
@@ -25,26 +29,28 @@ const DetailCard: React.FC<DetailCardProps> = ({ card, onBack }) => {
             isDarkTheme ? "dark-container" : "light-container"
           }`}
         >
-          <ThemedTypography variant="h4">{title}</ThemedTypography>
-          <ThemedTypography variant="body1">
+          <ThemedTypography variant="h4" data-testid="title">
+            {title}
+          </ThemedTypography>
+          <ThemedTypography variant="body1" data-testid="author">
             <strong>Author:</strong> {author}
           </ThemedTypography>
-          <ThemedTypography variant="body1">
+          <ThemedTypography variant="body1" data-testid="subreddit">
             <strong>Subreddit:</strong> {subreddit}
           </ThemedTypography>
-          <ThemedTypography variant="body1">
+          <ThemedTypography variant="body1" data-testid="ups">
             <strong>Ups:</strong> {ups}
           </ThemedTypography>
-          <ThemedTypography variant="body1">
+          <ThemedTypography variant="body1" data-testid="description">
             <strong>Description:</strong>{" "}
             {selftext || "No description available."}
           </ThemedTypography>
-          <ThemedTypography variant="body1">
+          <ThemedTypography variant="body1" data-testid="id">
             <strong>ID:</strong> {id}
           </ThemedTypography>
         </div>
         <div className="photo-detail-image">
-          <img src={thumbnail} alt={title} />
+          <img src={thumbnail} alt={title} data-testid="thumbnail" />
         </div>
       </div>
     </div>

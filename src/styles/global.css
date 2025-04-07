@@ -1,0 +1,19 @@
+/* colors.css */
+:root {
+  --light-background: #f0f8ff; /* Alice Blue */
+  --light-text: #000000;
+  --dark-background: #333333;
+  --dark-text: #ffffff;
+}
+
+/* Light Theme */
+.light-theme {
+  background-color: var(--light-background);
+  color: var(--light-text);
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}

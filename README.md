@@ -2,6 +2,9 @@
 
 A basic multilanguage web application that allows users to browse and view photo galleries fetched from Reddit. This project is designed to provide a seamless and visually appealing experience for exploring Reddit's image-based content.
 
+### Live
+https://react-reddit-photo-gallery.vercel.app/
+
 ## Features
 - Multilanguage support
 - Dark - Light theme options

@@ -56,7 +56,13 @@ const HomePage = () => {
         </div>
       )}
       {error && <Alert severity="error">{error}</Alert>}
-      <Grid marginTop={4} container spacing={3}>
+      <Grid
+        marginTop={4}
+        columnSpacing={1}
+        container
+        spacing={1}
+        justifyContent="center"
+      >
         {images.map((img) => (
           <PhotoCard
             key={img.id + img.ups}

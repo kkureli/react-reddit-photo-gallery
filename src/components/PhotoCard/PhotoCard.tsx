@@ -7,6 +7,7 @@ import {
   Typography,
   CardActions,
   Button,
+  useMediaQuery,
 } from "@mui/material";
 import { lightThemeColors, darkThemeColors } from "../../theme/colors";
 import useIsDarkThemeHook from "../../hooks/useIsDarkThemeHook";
@@ -27,9 +28,26 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ image, onClickCard }) => {
   const author = image.author;
   const subreddit = image.subreddit;
   const ups = image.ups || 0;
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   const truncatedTitle =
     title.length > 50 ? `${title.substring(0, 50)}...` : title;
+
+  if (isMobile) {
+    return (
+      <Card
+        sx={{
+          width: "30%",
+          height: "auto",
+          backgroundColor: "transparent",
+          boxShadow: "none",
+        }}
+        onClick={() => onClickCard(image)}
+      >
+        <CardMedia component="img" image={imageUrl} alt={title} />
+      </Card>
+    );
+  }
 
   return (
     <Card

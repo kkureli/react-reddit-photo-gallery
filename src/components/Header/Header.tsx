@@ -3,9 +3,7 @@ import React from "react";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   return (
     <Box
       marginBottom={2}

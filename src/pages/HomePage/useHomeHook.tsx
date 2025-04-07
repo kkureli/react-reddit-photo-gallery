@@ -10,6 +10,7 @@ const useHomeHook = () => {
   const [images, setImages] = useState<ImageData[]>([]);
   const [searchInput, setSearchInput] = useState("");
   const navigate = useNavigate();
+
   const handleSearch = useCallback(
     debounce(async (keyword: string) => {
       if (keyword.length < 3) return;

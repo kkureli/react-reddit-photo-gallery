@@ -12,10 +12,14 @@ const PhotoDetailPage = () => {
     card: ImageData;
   };
 
+  const onBack = () => {
+    navigate(-1);
+  };
+
   return (
     <ThemedContainer>
       <Header />
-      <DetailCard card={card} onBack={() => navigate(-1)} />
+      <DetailCard card={card} onBack={onBack} />
     </ThemedContainer>
   );
 };

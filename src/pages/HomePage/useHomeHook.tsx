@@ -2,12 +2,14 @@ import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
 import { fetchRedditImages } from "../../api/ApiEndpointHelper";
 import { ImageData } from "../../types/types";
+import { useNavigate } from "react-router-dom";
 
 const useHomeHook = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [images, setImages] = useState<ImageData[]>([]);
   const [searchInput, setSearchInput] = useState("");
+  const navigate = useNavigate();
   const handleSearch = useCallback(
     debounce(async (keyword: string) => {
       if (keyword.length < 3) return;
@@ -30,6 +32,10 @@ const useHomeHook = () => {
     []
   );
 
+  const onClickCard = (card: ImageData) => {
+    navigate(`/photo/${card.id}`, { state: { card } });
+  };
+
   useEffect(() => {
     if (!searchInput) {
       setError(null);
@@ -44,6 +50,7 @@ const useHomeHook = () => {
     handleSearch,
     searchInput,
     setSearchInput,
+    onClickCard,
   };
 };
 

@@ -14,9 +14,10 @@ import useIsDarkThemeHook from "../../hooks/useIsDarkThemeHook";
 interface PhotoCardProps {
   image: ImageData;
   isDarkTheme?: boolean;
+  onClickCard: (image: ImageData) => void;
 }
 
-const PhotoCard: React.FC<PhotoCardProps> = ({ image }) => {
+const PhotoCard: React.FC<PhotoCardProps> = ({ image, onClickCard }) => {
   const { isDarkTheme } = useIsDarkThemeHook();
   const themeColors = isDarkTheme ? darkThemeColors : lightThemeColors;
 
@@ -62,8 +63,8 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ image }) => {
         <Typography variant="body2">Ups: {ups}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary" href={imageUrl} target="_blank">
-          View on Reddit
+        <Button onClick={() => onClickCard(image)} size="small" color="primary">
+          Detaya Git
         </Button>
       </CardActions>
     </Card>

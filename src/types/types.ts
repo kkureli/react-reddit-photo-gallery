@@ -8,6 +8,7 @@ export type ImageData = {
   ups: number;
   thumbnail: string;
   url: string;
+  selftext: string;
   media_metadata: {
     [key: string]: {
       status: string;

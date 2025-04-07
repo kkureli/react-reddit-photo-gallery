@@ -16,5 +16,9 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "__tests__/useHomeHook.test.tsx"]
+  "include": [
+    "src",
+    "__tests__/useHomeHook.test.tsx",
+    "__tests__/PhotoDetailPage.test.tsx"
+  ]
 }

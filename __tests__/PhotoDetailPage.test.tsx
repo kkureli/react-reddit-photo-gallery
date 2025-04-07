@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-import PhotoDetailPage from "./PhotoDetailPage";
-import { ImageData } from "../../types/types";
+import PhotoDetailPage from "../src/pages/PhotoDetailPage/PhotoDetailPage";
+import { ImageData } from "../src/types/types";
 
 const mockCard: ImageData = {
   author: "test_author",
@@ -23,7 +23,9 @@ const store = mockStore({
   theme: { mode: "light" },
 });
 
-jest.mock("../../components/Header/Header", () => () => <div>Mock Header</div>);
+jest.mock("../src/components/Header/Header", () => () => (
+  <div>Mock Header</div>
+));
 
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({

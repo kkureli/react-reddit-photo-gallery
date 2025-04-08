@@ -18,7 +18,7 @@ const PhotoDetailPage = () => {
 
   return (
     <ThemedContainer>
-      <Header />
+      <Header showBackButton={true} onBack={onBack} />
       <DetailCard card={card} onBack={onBack} data-testid="detail-card" />
     </ThemedContainer>
   );

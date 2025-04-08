@@ -16,20 +16,17 @@ const DetailCard: React.FC<DetailCardProps> = ({ card, onBack }) => {
   const { isDarkTheme } = useIsDarkThemeHook();
   return (
     <div className="detail-card" data-testid="detail-card">
-      <button
-        className="back-button"
-        onClick={onBack}
-        data-testid="back-button"
-      >
-        {t("back")}
-      </button>
       <div className="detail-card-content">
         <div
           className={`detail-card-text ${
             isDarkTheme ? "dark-container" : "light-container"
           }`}
         >
-          <ThemedTypography variant="h4" data-testid="title" className="title">
+          <ThemedTypography
+            variant="h4"
+            data-testid="title"
+            className="detail-title"
+          >
             {title}
           </ThemedTypography>
           <ThemedTypography variant="body1" data-testid="author">

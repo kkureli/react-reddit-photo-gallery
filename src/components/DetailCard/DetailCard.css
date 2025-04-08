@@ -48,6 +48,7 @@
   color: #333;
   font-size: 16px;
   line-height: 1.5;
+  border-radius: 10px;
 }
 
 .photo-detail-image {
@@ -102,5 +103,17 @@
 
   .back-button {
     display: block;
+  }
+  .detail-title {
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  .photo-detail-image img {
+    width: 100vw;
+    height: auto;
+    object-fit: fill;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
   }
 }

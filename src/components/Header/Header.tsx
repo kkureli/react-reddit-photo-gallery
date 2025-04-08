@@ -1,9 +1,18 @@
-import { Box } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import React from "react";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import LanguagePicker from "../LanguagePicker/LanguagePicker";
+import useIsDarkThemeHook from "../../hooks/useIsDarkThemeHook";
 
-const Header = () => {
+interface HeaderProps {
+  showBackButton?: boolean;
+  onBack?: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ showBackButton, onBack }) => {
+  const { isDarkTheme } = useIsDarkThemeHook();
+
   return (
     <Box
       marginBottom={2}
@@ -13,6 +22,17 @@ const Header = () => {
         alignItems: "center",
       }}
     >
+      {showBackButton && (
+        <IconButton
+          onClick={onBack}
+          data-testid="back-button"
+          sx={{
+            color: isDarkTheme ? "white" : "black",
+          }}
+        >
+          <ArrowBackIcon />
+        </IconButton>
+      )}
       <LanguagePicker />
       <ThemeSwitcher />
     </Box>

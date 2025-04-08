@@ -23,9 +23,21 @@ const store = mockStore({
   theme: { mode: "light" },
 });
 
-jest.mock("../src/components/Header/Header", () => () => (
-  <div>Mock Header</div>
-));
+jest.mock(
+  "../src/components/Header/Header",
+  () =>
+    ({ showBackButton, onBack }: any) =>
+      (
+        <div>
+          Mock Header
+          {showBackButton && (
+            <button data-testid="back-button" onClick={onBack}>
+              Back
+            </button>
+          )}
+        </div>
+      )
+);
 
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({

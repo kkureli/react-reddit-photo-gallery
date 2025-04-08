@@ -1,8 +1,8 @@
 import React from "react";
 import { TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import useIsDarkThemeHook from "../../hooks/useIsDarkThemeHook";
 import { useTranslation } from "react-i18next";
+import useThemeColor from "../../hooks/useThemeColor";
 
 interface SearchBarProps {
   onChange: (value: string) => void;
@@ -16,8 +16,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
   input,
 }) => {
   const { t } = useTranslation();
+  const themeColors = useThemeColor();
 
-  const { isDarkTheme } = useIsDarkThemeHook();
   return (
     <TextField
       fullWidth
@@ -35,23 +35,23 @@ const SearchBar: React.FC<SearchBarProps> = ({
         ),
       }}
       sx={{
-        backgroundColor: isDarkTheme ? "#333" : "#fff",
-        color: isDarkTheme ? "#fff" : "#000",
+        backgroundColor: themeColors.searchBarBackground,
+        color: themeColors.searchBarText,
         input: {
-          color: isDarkTheme ? "white" : "#000",
+          color: themeColors.searchBarText,
           "&::placeholder": {
             opacity: 1,
           },
         },
         "& .MuiOutlinedInput-root": {
           "& fieldset": {
-            borderColor: isDarkTheme ? "#555" : "#ccc",
+            borderColor: themeColors.searchBarBorder,
           },
           "&:hover fieldset": {
-            borderColor: isDarkTheme ? "#777" : "#888",
+            borderColor: themeColors.searchBarHoverBorder,
           },
           "&.Mui-focused fieldset": {
-            borderColor: isDarkTheme ? "#aaa" : "#000",
+            borderColor: themeColors.searchBarText,
           },
         },
       }}

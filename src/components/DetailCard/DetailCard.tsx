@@ -29,7 +29,7 @@ const DetailCard: React.FC<DetailCardProps> = ({ card, onBack }) => {
             isDarkTheme ? "dark-container" : "light-container"
           }`}
         >
-          <ThemedTypography variant="h4" data-testid="title">
+          <ThemedTypography variant="h4" data-testid="title" className="title">
             {title}
           </ThemedTypography>
           <ThemedTypography variant="body1" data-testid="author">

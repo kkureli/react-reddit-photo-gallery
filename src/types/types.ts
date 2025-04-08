@@ -1,5 +1,3 @@
-// src/types/reddit.ts
-
 export type ImageData = {
   id: string;
   title: string;
@@ -12,12 +10,12 @@ export type ImageData = {
   media_metadata: {
     [key: string]: {
       status: string;
-      e: string; // Image format (örneğin, "jpeg")
-      m: string; // MIME type (örneğin, "image/jpeg")
+      e: string;
+      m: string;
       s: {
-        u: string; // Image URL
-        x: number; // Image width
-        y: number; // Image height
+        u: string;
+        x: number;
+        y: number;
       };
     };
   };

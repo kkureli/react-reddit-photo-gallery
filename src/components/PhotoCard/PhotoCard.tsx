@@ -23,7 +23,7 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ image, onClickCard }) => {
   const { isDarkTheme } = useIsDarkThemeHook();
   const themeColors = isDarkTheme ? darkThemeColors : lightThemeColors;
   const { t } = useTranslation();
-  const imageUrl = image.thumbnail; // Görsel URL'si
+  const imageUrl = image.thumbnail;
   const title = image.title;
   const author = image.author;
   const subreddit = image.subreddit;

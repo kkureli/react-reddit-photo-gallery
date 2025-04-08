@@ -12,6 +12,7 @@ import {
 import { lightThemeColors, darkThemeColors } from "../../theme/colors";
 import useIsDarkThemeHook from "../../hooks/useIsDarkThemeHook";
 import { useTranslation } from "react-i18next";
+import "./PhotoCard.css"; // Import the CSS file
 
 interface PhotoCardProps {
   image: ImageData;
@@ -35,15 +36,7 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ image, onClickCard }) => {
 
   if (isMobile) {
     return (
-      <Card
-        sx={{
-          width: "30%",
-          height: "auto",
-          backgroundColor: "transparent",
-          boxShadow: "none",
-        }}
-        onClick={() => onClickCard(image)}
-      >
+      <Card className="mobileCard" onClick={() => onClickCard(image)}>
         <CardMedia component="img" image={imageUrl} alt={title} />
       </Card>
     );
@@ -51,20 +44,10 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ image, onClickCard }) => {
 
   return (
     <Card
-      sx={{
-        width: 300,
-        height: 400,
-        margin: "auto",
+      className="desktopCard"
+      style={{
         backgroundColor: themeColors.cardBackground,
         color: themeColors.cardText,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        transition: "transform 0.3s, box-shadow 0.3s",
-        "&:hover": {
-          transform: "scale(1.05)",
-          boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
-        },
       }}
     >
       <CardMedia component="img" height="200" image={imageUrl} alt={title} />
@@ -73,7 +56,7 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ image, onClickCard }) => {
           gutterBottom
           variant="h6"
           component="div"
-          sx={{ fontSize: "0.9rem" }}
+          className="truncatedTitle"
         >
           {truncatedTitle}
         </Typography>

@@ -1,0 +1,25 @@
+.mobileCard {
+  width: 30%;
+  height: auto;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.desktopCard {
+  width: 300px;
+  height: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.desktopCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.truncatedTitle {
+  font-size: 0.9rem;
+}

@@ -10,4 +10,7 @@ export const en = {
   noDescription: "No description available.",
   id: "ID",
   go_to_detail: "Go to details",
+  notFoundTitle: "404 - Page Not Found",
+  notFoundMessage: "Sorry, the page you are looking for does not exist.",
+  goBackHome: "Go back to Home",
 };

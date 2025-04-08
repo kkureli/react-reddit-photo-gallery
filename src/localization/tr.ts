@@ -10,4 +10,7 @@ export const tr = {
   noDescription: "Açıklama mevcut değil.",
   id: "ID",
   go_to_detail: "Detaylara git",
+  notFoundTitle: "404 - Sayfa Bulunamadı",
+  notFoundMessage: "Üzgünüz, aradığınız sayfa mevcut değil.",
+  goBackHome: "Ana sayfaya dön",
 };
